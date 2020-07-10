@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Elevinskii_UniversalList::universal_lists"
+             title="Universal Lists"
+             module="Elevinskii_UniversalList"
+             sortOrder="60"
+             parent="Magento_Backend::stores"
+             resource="Elevinskii_UniversalList::universal_lists" />
+
+        <add id="Elevinskii_UniversalList::universal_lists_config"
+             title="Configuration"
+             module="Elevinskii_UniversalList"
+             sortOrder="10"
+             parent="Elevinskii_UniversalList::universal_lists"
+             action="universal_list/config"
+             resource="Elevinskii_UniversalList::universal_lists_config" />
+    </menu>
+</config>
