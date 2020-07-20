@@ -34,10 +34,9 @@
                 <label translate="true">ID</label>
             </settings>
         </column>
-        <column name="sort_order">
+        <column name="title">
             <settings>
-                <label translate="true">Sort Order</label>
-                <sorting>asc</sorting>
+                <label translate="true">Title</label>
             </settings>
         </column>
         <column name="code">
@@ -45,9 +44,10 @@
                 <label translate="true">Code</label>
             </settings>
         </column>
-        <column name="title">
+        <column name="sort_order">
             <settings>
-                <label translate="true">Title</label>
+                <label translate="true">Sort Order</label>
+                <sorting>asc</sorting>
             </settings>
         </column>
     </columns>

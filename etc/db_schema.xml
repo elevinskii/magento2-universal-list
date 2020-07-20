@@ -3,9 +3,9 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
     <table name="universal_list">
         <column xsi:type="smallint" name="list_id" unsigned="true" identity="true" />
-        <column xsi:type="smallint" name="sort_order" unsigned="true" nullable="false" default="0" />
-        <column xsi:type="varchar" name="code" nullable="false" />
         <column xsi:type="varchar" name="title" nullable="false" />
+        <column xsi:type="varchar" name="code" nullable="false" />
+        <column xsi:type="smallint" name="sort_order" unsigned="true" nullable="false" default="0" />
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="list_id" />
         </constraint>
