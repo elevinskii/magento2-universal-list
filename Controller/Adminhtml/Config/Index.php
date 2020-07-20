@@ -26,7 +26,6 @@ class Index extends Action implements HttpGetActionInterface
         /** @var ResultPage $resultPage */
         $resultPage = $this->resultFactory->create($this->resultFactory::TYPE_PAGE);
         $resultPage->setActiveMenu('Elevinskii_UniversalList::universal_lists_config');
-        $resultPage->getConfig()->getTitle()->prepend(__('Configuration'));
 
         return $resultPage;
     }
