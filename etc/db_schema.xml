@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
-    <table name="universal_list_type">
-        <column xsi:type="smallint" name="type_id" unsigned="true" identity="true" />
-        <column xsi:type="smallint" name="sort_order" unsigned="true" nullable="false" default="0" />
-        <column xsi:type="varchar" name="code" nullable="false" />
+    <table name="universal_list">
+        <column xsi:type="smallint" name="list_id" unsigned="true" identity="true" />
         <column xsi:type="varchar" name="title" nullable="false" />
+        <column xsi:type="varchar" name="code" nullable="false" />
+        <column xsi:type="smallint" name="sort_order" unsigned="true" nullable="false" default="0" />
         <constraint xsi:type="primary" referenceId="PRIMARY">
-            <column name="type_id" />
+            <column name="list_id" />
         </constraint>
         <constraint xsi:type="unique" referenceId="TYPE_CODE">
             <column name="code" />

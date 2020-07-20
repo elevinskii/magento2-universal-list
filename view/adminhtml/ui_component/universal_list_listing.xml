@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">universal_list_listing.universal_list_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>universal_list_listing_columns</spinner>
+        <deps>
+            <dep>universal_list_listing.universal_list_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="universal_list_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">list_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Elevinskii_UniversalList::universal_lists_config</aclResource>
+        <dataProvider class="Elevinskii\UniversalList\Ui\DataProvider\UList\Listing"
+                      name="universal_list_listing_data_source">
+            <settings>
+                <primaryFieldName>id</primaryFieldName>
+                <requestFieldName>list_id</requestFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="universal_list_listing_columns">
+        <column name="list_id">
+            <settings>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="title">
+            <settings>
+                <label translate="true">Title</label>
+            </settings>
+        </column>
+        <column name="code">
+            <settings>
+                <label translate="true">Code</label>
+            </settings>
+        </column>
+        <column name="sort_order">
+            <settings>
+                <label translate="true">Sort Order</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+    </columns>
+</listing>
