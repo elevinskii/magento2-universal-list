@@ -19,7 +19,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>Elevinskii_UniversalList::universal_lists_config</aclResource>
+        <aclResource>Elevinskii_UniversalList::universal_lists_entities</aclResource>
         <dataProvider class="Elevinskii\UniversalList\Ui\DataProvider\UList\Listing"
                       name="universal_list_listing_data_source">
             <settings>
