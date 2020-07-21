@@ -3,19 +3,12 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Controller\Adminhtml\Entity;
 
-use Magento\Backend\App\Action;
+use Elevinskii\UniversalList\Controller\Adminhtml\Entity as AbstractEntity;
 use Magento\Backend\Model\View\Result\Page as ResultPage;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 
-class Index extends Action implements HttpGetActionInterface
+class Index extends AbstractEntity implements HttpGetActionInterface
 {
-    /**
-     * Authorization level of a basic admin session
-     *
-     * @see _isAllowed()
-     */
-    const ADMIN_RESOURCE = 'Elevinskii_UniversalList::universal_lists_entities';
-
     /**
      * Execute the controller
      *
