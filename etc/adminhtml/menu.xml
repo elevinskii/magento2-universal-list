@@ -14,7 +14,7 @@
              module="Elevinskii_UniversalList"
              sortOrder="10"
              parent="Elevinskii_UniversalList::universal_lists"
-             action="universal_list/config"
+             action="universal_list/entity"
              resource="Elevinskii_UniversalList::universal_lists_entities" />
     </menu>
 </config>

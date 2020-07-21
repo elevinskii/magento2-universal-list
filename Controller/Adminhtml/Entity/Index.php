@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Elevinskii\UniversalList\Controller\Adminhtml\Config;
+namespace Elevinskii\UniversalList\Controller\Adminhtml\Entity;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\Model\View\Result\Page as ResultPage;
