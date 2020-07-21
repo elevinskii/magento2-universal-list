@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Model;
 
-use Elevinskii\UniversalList\Model\ResourceModel\UList as ResourceModel;
+use Elevinskii\UniversalList\Model\ResourceModel\Entity as ResourceModel;
 use Magento\Framework\Model\AbstractModel;
 
-class UList extends AbstractModel
+class Entity extends AbstractModel
 {
     /**
      * Define resource model
