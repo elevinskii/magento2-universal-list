@@ -9,12 +9,12 @@
              parent="Magento_Backend::stores"
              resource="Elevinskii_UniversalList::universal_lists" />
 
-        <add id="Elevinskii_UniversalList::universal_lists_config"
-             title="Configuration"
+        <add id="Elevinskii_UniversalList::universal_lists_entities"
+             title="Entities"
              module="Elevinskii_UniversalList"
              sortOrder="10"
              parent="Elevinskii_UniversalList::universal_lists"
-             action="universal_list/config"
-             resource="Elevinskii_UniversalList::universal_lists_config" />
+             action="universal_list/entity"
+             resource="Elevinskii_UniversalList::universal_lists_entities" />
     </menu>
 </config>

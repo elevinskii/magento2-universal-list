@@ -5,7 +5,7 @@ namespace Elevinskii\UniversalList\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-class UList extends AbstractDb
+class Entity extends AbstractDb
 {
     /**
      * Resource initialization
@@ -14,6 +14,6 @@ class UList extends AbstractDb
      */
     protected function _construct(): void
     {
-        $this->_init('universal_list', 'list_id');
+        $this->_init('universal_list_entity', 'list_id');
     }
 }

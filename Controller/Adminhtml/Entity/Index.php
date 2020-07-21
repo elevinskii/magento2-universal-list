@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Elevinskii\UniversalList\Controller\Adminhtml\Config;
+namespace Elevinskii\UniversalList\Controller\Adminhtml\Entity;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\Model\View\Result\Page as ResultPage;
@@ -14,7 +14,7 @@ class Index extends Action implements HttpGetActionInterface
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Elevinskii_UniversalList::universal_lists_config';
+    const ADMIN_RESOURCE = 'Elevinskii_UniversalList::universal_lists_entities';
 
     /**
      * Execute the controller
@@ -25,7 +25,7 @@ class Index extends Action implements HttpGetActionInterface
     {
         /** @var ResultPage $resultPage */
         $resultPage = $this->resultFactory->create($this->resultFactory::TYPE_PAGE);
-        $resultPage->setActiveMenu('Elevinskii_UniversalList::universal_lists_config');
+        $resultPage->setActiveMenu('Elevinskii_UniversalList::universal_lists_entities');
 
         return $resultPage;
     }

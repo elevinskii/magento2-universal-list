@@ -6,8 +6,8 @@
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::stores">
                     <resource id="Elevinskii_UniversalList::universal_lists" title="Universal Lists" sortOrder="60">
-                        <resource id="Elevinskii_UniversalList::universal_lists_config"
-                                  title="Configuration"
+                        <resource id="Elevinskii_UniversalList::universal_lists_entities"
+                                  title="Entities"
                                   sortOrder="10" />
                     </resource>
                 </resource>

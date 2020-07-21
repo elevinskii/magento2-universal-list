@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Elevinskii\UniversalList\Ui\DataProvider\UList;
+namespace Elevinskii\UniversalList\Ui\DataProvider\Entity;
 
-use Elevinskii\UniversalList\Model\ResourceModel\UList\Collection;
-use Elevinskii\UniversalList\Model\ResourceModel\UList\CollectionFactory;
+use Elevinskii\UniversalList\Model\ResourceModel\Entity\Collection;
+use Elevinskii\UniversalList\Model\ResourceModel\Entity\CollectionFactory;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 
 class Listing extends AbstractDataProvider

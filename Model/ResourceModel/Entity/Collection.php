@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Elevinskii\UniversalList\Model\ResourceModel\UList;
+namespace Elevinskii\UniversalList\Model\ResourceModel\Entity;
 
-use Elevinskii\UniversalList\Model\UList as Model;
-use Elevinskii\UniversalList\Model\ResourceModel\UList as ResourceModel;
+use Elevinskii\UniversalList\Model\Entity as Model;
+use Elevinskii\UniversalList\Model\ResourceModel\Entity as ResourceModel;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 class Collection extends AbstractCollection
