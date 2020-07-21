@@ -7,7 +7,7 @@ use Elevinskii\UniversalList\Controller\Adminhtml\Entity as AbstractEntity;
 use Magento\Backend\Model\View\Result\Page as ResultPage;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 
-class Index extends AbstractEntity implements HttpGetActionInterface
+class NewAction extends AbstractEntity implements HttpGetActionInterface
 {
     /**
      * Execute the controller
@@ -19,6 +19,7 @@ class Index extends AbstractEntity implements HttpGetActionInterface
         /** @var ResultPage $resultPage */
         $resultPage = $this->resultFactory->create($this->resultFactory::TYPE_PAGE);
         $resultPage->setActiveMenu('Elevinskii_UniversalList::universal_lists_entities');
+        $resultPage->getConfig()->getTitle()->prepend(__('New List'));
 
         return $resultPage;
     }

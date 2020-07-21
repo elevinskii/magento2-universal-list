@@ -9,6 +9,13 @@
         </item>
     </argument>
     <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new" />
+                <class>primary</class>
+                <label translate="true">Add New List</label>
+            </button>
+        </buttons>
         <spinner>universal_list_entity_listing_columns</spinner>
         <deps>
             <dep>universal_list_entity_listing.universal_list_entity_listing_data_source</dep>
@@ -19,7 +26,7 @@
             <storageConfig>
                 <param name="indexField" xsi:type="string">list_id</param>
             </storageConfig>
-            <updateUrl path="mui/index/render"/>
+            <updateUrl path="mui/index/render" />
         </settings>
         <aclResource>Elevinskii_UniversalList::universal_lists_entities</aclResource>
         <dataProvider class="Elevinskii\UniversalList\Ui\DataProvider\Entity\Listing"
