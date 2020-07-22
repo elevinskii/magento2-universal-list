@@ -59,5 +59,6 @@
                 <sorting>asc</sorting>
             </settings>
         </column>
+        <actionsColumn name="actions" class="Elevinskii\UniversalList\Ui\Component\Listing\Column\Entity\Actions" />
     </columns>
 </listing>
