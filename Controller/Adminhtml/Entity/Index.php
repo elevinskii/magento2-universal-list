@@ -16,10 +16,6 @@ class Index extends AbstractEntity implements HttpGetActionInterface
      */
     public function execute(): ResultPage
     {
-        /** @var ResultPage $resultPage */
-        $resultPage = $this->resultFactory->create($this->resultFactory::TYPE_PAGE);
-        $resultPage->setActiveMenu('Elevinskii_UniversalList::universal_lists_entities');
-
-        return $resultPage;
+        return $this->initResultPage();
     }
 }
