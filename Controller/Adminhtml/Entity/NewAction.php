@@ -16,11 +16,6 @@ class NewAction extends AbstractEntity implements HttpGetActionInterface
      */
     public function execute(): ResultPage
     {
-        /** @var ResultPage $resultPage */
-        $resultPage = $this->resultFactory->create($this->resultFactory::TYPE_PAGE);
-        $resultPage->setActiveMenu('Elevinskii_UniversalList::universal_lists_entities');
-        $resultPage->getConfig()->getTitle()->prepend(__('New List'));
-
-        return $resultPage;
+        return $this->initResultPage((string) __('New List'));
     }
 }
