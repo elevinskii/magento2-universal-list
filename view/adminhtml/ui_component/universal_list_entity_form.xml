@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                universal_list_entity_form.universal_list_entity_form_data_source
+            </item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>universal_list_entity_form.universal_list_entity_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="universal_list_entity_form_data_source" component="Magento_Ui/js/form/provider">
+        <aclResource>Elevinskii_UniversalList::universal_lists_entities</aclResource>
+        <dataProvider class="Elevinskii\UniversalList\Ui\DataProvider\Entity\Form"
+                      name="universal_list_entity_form_data_source">
+            <settings>
+                <primaryFieldName>list_id</primaryFieldName>
+                <requestFieldName>list_id</requestFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label />
+        </settings>
+        <field name="title" formElement="input">
+            <settings>
+                <label translate="true">Title</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="code" formElement="input">
+            <settings>
+                <label translate="true">Code</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="sort_order" formElement="input">
+            <settings>
+                <label translate="true">Sort Order</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+    </fieldset>
+</form>
