@@ -11,6 +11,11 @@
     </argument>
     <settings>
         <buttons>
+            <button name="back">
+                <url path="*/*" />
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
             <button name="save" class="Elevinskii\UniversalList\Ui\Component\Form\Control\Entity\SaveSplitButton" />
         </buttons>
         <dataScope>data</dataScope>
