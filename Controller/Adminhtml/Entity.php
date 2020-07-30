@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Controller\Adminhtml;
 
+use Elevinskii\UniversalList\Model\EntityFactory as EntityModelFactory;
+use Elevinskii\UniversalList\Model\ResourceModel\EntityFactory as EntityResModelFactory;
 use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Page as ResultPage;
 
 abstract class Entity extends Action
@@ -14,6 +17,34 @@ abstract class Entity extends Action
      * @see _isAllowed()
      */
     const ADMIN_RESOURCE = 'Elevinskii_UniversalList::universal_lists_entities';
+
+    /**
+     * @var EntityModelFactory
+     */
+    protected $entityModelFactory;
+
+    /**
+     * @var EntityResModelFactory
+     */
+    protected $entityResModelFactory;
+
+    /**
+     * Entity constructor
+     *
+     * @param Context $context
+     * @param EntityModelFactory $entityModelFactory
+     * @param EntityResModelFactory $entityResModelFactory
+     */
+    public function __construct(
+        Context $context,
+        EntityModelFactory $entityModelFactory,
+        EntityResModelFactory $entityResModelFactory
+    ) {
+        parent::__construct($context);
+
+        $this->entityModelFactory = $entityModelFactory;
+        $this->entityResModelFactory = $entityResModelFactory;
+    }
 
     /**
      * Initialization of a backend page

@@ -4,9 +4,6 @@ declare(strict_types=1);
 namespace Elevinskii\UniversalList\Controller\Adminhtml\Entity;
 
 use Elevinskii\UniversalList\Controller\Adminhtml\Entity as AbstractEntity;
-use Elevinskii\UniversalList\Model\EntityFactory as EntityModelFactory;
-use Elevinskii\UniversalList\Model\ResourceModel\EntityFactory as EntityResModelFactory;
-use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Page as ResultPage;
 use Magento\Backend\Model\View\Result\Redirect as ResultRedirect;
 use Magento\Framework\App\Action\HttpGetActionInterface;
@@ -14,34 +11,6 @@ use Magento\Framework\Controller\ResultInterface;
 
 class Edit extends AbstractEntity implements HttpGetActionInterface
 {
-    /**
-     * @var EntityModelFactory
-     */
-    private $entityModelFactory;
-
-    /**
-     * @var EntityResModelFactory
-     */
-    private $entityResModelFactory;
-
-    /**
-     * Edit constructor
-     *
-     * @param Context $context
-     * @param EntityModelFactory $entityModelFactory
-     * @param EntityResModelFactory $entityResModelFactory
-     */
-    public function __construct(
-        Context $context,
-        EntityModelFactory $entityModelFactory,
-        EntityResModelFactory $entityResModelFactory
-    ) {
-        parent::__construct($context);
-
-        $this->entityModelFactory = $entityModelFactory;
-        $this->entityResModelFactory = $entityResModelFactory;
-    }
-
     /**
      * Execute the controller
      *
