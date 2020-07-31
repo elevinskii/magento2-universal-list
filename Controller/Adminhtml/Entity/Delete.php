@@ -25,27 +25,25 @@ class Delete extends AbstractEntity implements HttpPostActionInterface
         /** @var Request $request */
         $request = $this->getRequest();
 
-        if ($request->isPost()) {
-            $listId = $request->getPostValue('list_id');
+        $listId = $request->getPostValue('list_id');
+        if ($listId) {
             $entity = $this->entityModelFactory->create();
             $resEntity = $this->entityResModelFactory->create();
 
-            if ($listId) {
-                $resEntity->load($entity, $listId);
-                if ($entity->isEmpty()) {
-                    $this->messageManager->addErrorMessage(
-                        __('The list with ID=%1 does not exist.', $listId)
-                    );
-                    return $resultRedirect;
-                }
+            $resEntity->load($entity, $listId);
+            if ($entity->isEmpty()) {
+                $this->messageManager->addErrorMessage(
+                    __('The list with ID=%1 does not exist.', $listId)
+                );
+                return $resultRedirect;
+            }
 
-                try {
-                    $resEntity->delete($entity);
-                    $this->messageManager->addSuccessMessage(__('The list has been deleted.'));
-                } catch (Exception $e) {
-                    $this->messageManager->addExceptionMessage($e, __('An error occurred while deleting the list.'));
-                    $resultRedirect->setPath('*/*/edit', ['list_id' => $listId]);
-                }
+            try {
+                $resEntity->delete($entity);
+                $this->messageManager->addSuccessMessage(__('The list has been deleted.'));
+            } catch (Exception $e) {
+                $this->messageManager->addExceptionMessage($e, __('An error occurred while deleting the list.'));
+                $resultRedirect->setPath('*/*/edit', ['list_id' => $listId]);
             }
         }
 
