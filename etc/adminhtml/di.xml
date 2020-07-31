@@ -9,4 +9,15 @@
             </argument>
         </arguments>
     </virtualType>
+    <virtualType name="Elevinskii\UniversalList\Ui\Component\Form\Control\Entity\DeleteButton"
+                 type="Magento\Backend\Ui\Component\Control\DeleteButton">
+        <arguments>
+            <argument name="confirmationMessage" xsi:type="string" translatable="true">
+                Are you sure you want to delete the list?
+            </argument>
+            <argument name="idFieldName" xsi:type="string">list_id</argument>
+            <argument name="deleteRoutePath" xsi:type="string">*/*/delete</argument>
+            <argument name="sortOrder" xsi:type="number">30</argument>
+        </arguments>
+    </virtualType>
 </config>

@@ -8,9 +8,8 @@ use Exception;
 use Magento\Backend\Model\View\Result\Redirect as ResultRedirect;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\App\Request\Http as Request;
-use Magento\Framework\Exception\LocalizedException;
 
-class Save extends AbstractEntity implements HttpPostActionInterface
+class Delete extends AbstractEntity implements HttpPostActionInterface
 {
     /**
      * Execute the controller
@@ -27,10 +26,10 @@ class Save extends AbstractEntity implements HttpPostActionInterface
         $request = $this->getRequest();
 
         $listId = $request->getPostValue('list_id');
-        $entity = $this->entityModelFactory->create();
-        $resEntity = $this->entityResModelFactory->create();
-
         if ($listId) {
+            $entity = $this->entityModelFactory->create();
+            $resEntity = $this->entityResModelFactory->create();
+
             $resEntity->load($entity, $listId);
             if ($entity->isEmpty()) {
                 $this->messageManager->addErrorMessage(
@@ -38,28 +37,14 @@ class Save extends AbstractEntity implements HttpPostActionInterface
                 );
                 return $resultRedirect;
             }
-        }
 
-        try {
-            $entity->setData($request->getPostValue());
-            $resEntity->save($entity);
-            $this->messageManager->addSuccessMessage(__('The list has been saved.'));
-        } catch (LocalizedException $e) {
-            $request->setParam('back', true);
-            $this->messageManager->addErrorMessage($e->getMessage());
-        } catch (Exception $e) {
-            $request->setParam('back', true);
-            $this->messageManager->addExceptionMessage($e, __('An error occurred while saving the list.'));
-        }
-
-        if ($request->getParam('back')) {
-            if ($entity->getId()) {
-                $resultRedirect->setPath('*/*/edit', ['list_id' => $entity->getId()]);
-            } else {
-                $resultRedirect->setPath('*/*/new');
+            try {
+                $resEntity->delete($entity);
+                $this->messageManager->addSuccessMessage(__('The list has been deleted.'));
+            } catch (Exception $e) {
+                $this->messageManager->addExceptionMessage($e, __('An error occurred while deleting the list.'));
+                $resultRedirect->setPath('*/*/edit', ['list_id' => $listId]);
             }
-        } elseif ($request->getPostValue('redirect_to_new')) {
-            $resultRedirect->setPath('*/*/new');
         }
 
         return $resultRedirect;
