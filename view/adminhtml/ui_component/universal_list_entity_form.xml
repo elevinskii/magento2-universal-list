@@ -41,7 +41,7 @@
         <settings>
             <label />
         </settings>
-        <field name="title" formElement="input">
+        <field name="title" formElement="input" sortOrder="10">
             <settings>
                 <label translate="true">Title</label>
                 <validation>
@@ -49,7 +49,7 @@
                 </validation>
             </settings>
         </field>
-        <field name="code" formElement="input">
+        <field name="code" formElement="input" sortOrder="20">
             <settings>
                 <label translate="true">Code</label>
                 <validation>
@@ -57,7 +57,7 @@
                 </validation>
             </settings>
         </field>
-        <field name="sort_order" formElement="input">
+        <field name="sort_order" formElement="input" sortOrder="30">
             <settings>
                 <label translate="true">Sort Order</label>
                 <validation>

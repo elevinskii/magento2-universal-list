@@ -38,27 +38,29 @@
         </dataProvider>
     </dataSource>
     <columns name="universal_list_entity_listing_columns">
-        <column name="list_id">
+        <column name="list_id" sortOrder="10">
             <settings>
                 <label translate="true">ID</label>
             </settings>
         </column>
-        <column name="title">
+        <column name="title" sortOrder="20">
             <settings>
                 <label translate="true">Title</label>
             </settings>
         </column>
-        <column name="code">
+        <column name="code" sortOrder="30">
             <settings>
                 <label translate="true">Code</label>
             </settings>
         </column>
-        <column name="sort_order">
+        <column name="sort_order" sortOrder="40">
             <settings>
                 <label translate="true">Sort Order</label>
                 <sorting>asc</sorting>
             </settings>
         </column>
-        <actionsColumn name="actions" class="Elevinskii\UniversalList\Ui\Component\Listing\Column\Entity\Actions" />
+        <actionsColumn name="actions"
+                       class="Elevinskii\UniversalList\Ui\Component\Listing\Column\Entity\Actions"
+                       sortOrder="50" />
     </columns>
 </listing>
