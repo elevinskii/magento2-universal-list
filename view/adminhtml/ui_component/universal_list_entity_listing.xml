@@ -4,7 +4,7 @@
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">
-                universal_list_entity_listing.universal_list_entity_listing_data_source
+                universal_list_entity_listing.universal_list_entity_data_source
             </item>
         </item>
     </argument>
@@ -18,10 +18,10 @@
         </buttons>
         <spinner>universal_list_entity_listing_columns</spinner>
         <deps>
-            <dep>universal_list_entity_listing.universal_list_entity_listing_data_source</dep>
+            <dep>universal_list_entity_listing.universal_list_entity_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="universal_list_entity_listing_data_source" component="Magento_Ui/js/grid/provider">
+    <dataSource name="universal_list_entity_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
                 <param name="indexField" xsi:type="string">list_id</param>
@@ -29,10 +29,10 @@
             <updateUrl path="mui/index/render" />
         </settings>
         <aclResource>Elevinskii_UniversalList::universal_lists_entities</aclResource>
-        <dataProvider class="Elevinskii\UniversalList\Ui\DataProvider\Entity\Listing"
-                      name="universal_list_entity_listing_data_source">
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="universal_list_entity_data_source">
             <settings>
-                <primaryFieldName>id</primaryFieldName>
+                <primaryFieldName>list_id</primaryFieldName>
                 <requestFieldName>list_id</requestFieldName>
             </settings>
         </dataProvider>

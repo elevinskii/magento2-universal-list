@@ -26,7 +26,8 @@ class Save extends AbstractEntity implements HttpPostActionInterface
         /** @var Request $request */
         $request = $this->getRequest();
 
-        $listId = $request->getPostValue('list_id');
+        $formValues = $request->getPostValue('general', []);
+        $listId = $formValues['list_id'] ?? null;
         $entity = $this->entityModelFactory->create();
         $resEntity = $this->entityResModelFactory->create();
 
@@ -41,7 +42,7 @@ class Save extends AbstractEntity implements HttpPostActionInterface
         }
 
         try {
-            $entity->setData($request->getPostValue());
+            $entity->setData($formValues);
             $resEntity->save($entity);
             $this->messageManager->addSuccessMessage(__('The list has been saved.'));
         } catch (LocalizedException $e) {

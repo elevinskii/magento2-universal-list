@@ -4,7 +4,7 @@
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">
-                universal_list_entity_form.universal_list_entity_form_data_source
+                universal_list_entity_form.universal_list_entity_data_source
             </item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
@@ -21,16 +21,16 @@
         </buttons>
         <dataScope>data</dataScope>
         <deps>
-            <dep>universal_list_entity_form.universal_list_entity_form_data_source</dep>
+            <dep>universal_list_entity_form.universal_list_entity_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="universal_list_entity_form_data_source" component="Magento_Ui/js/form/provider">
+    <dataSource name="universal_list_entity_data_source" component="Magento_Ui/js/form/provider">
         <settings>
             <submitUrl path="universal_list/entity/save" />
         </settings>
         <aclResource>Elevinskii_UniversalList::universal_lists_entities</aclResource>
-        <dataProvider class="Elevinskii\UniversalList\Ui\DataProvider\Entity\Form"
-                      name="universal_list_entity_form_data_source">
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="universal_list_entity_data_source">
             <settings>
                 <primaryFieldName>list_id</primaryFieldName>
                 <requestFieldName>list_id</requestFieldName>
@@ -40,6 +40,7 @@
     <fieldset name="general">
         <settings>
             <label />
+            <dataScope>general</dataScope>
         </settings>
         <field name="title" formElement="input" sortOrder="10">
             <settings>
