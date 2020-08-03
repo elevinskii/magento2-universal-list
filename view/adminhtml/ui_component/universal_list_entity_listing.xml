@@ -59,8 +59,12 @@
                 <sorting>asc</sorting>
             </settings>
         </column>
-        <actionsColumn name="actions"
-                       class="Elevinskii\UniversalList\Ui\Component\Listing\Column\Entity\Actions"
-                       sortOrder="50" />
+        <actionsColumn name="actions" class="Magento\Backend\Ui\Component\Listing\Column\EditAction" sortOrder="50">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editUrlPath" xsi:type="string">universal_list/entity/edit</item>
+                </item>
+            </argument>
+        </actionsColumn>
     </columns>
 </listing>
