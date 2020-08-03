@@ -21,6 +21,12 @@
             <dep>universal_list_entity_listing.universal_list_entity_data_source</dep>
         </deps>
     </settings>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks" />
+        <columnsControls name="columns_controls" />
+        <filterSearch name="fulltext" />
+        <paging name="listing_paging" />
+    </listingToolbar>
     <dataSource name="universal_list_entity_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
