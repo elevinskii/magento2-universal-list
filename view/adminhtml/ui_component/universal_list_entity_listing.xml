@@ -4,7 +4,7 @@
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">
-                universal_list_entity_listing.universal_list_entity_listing_data_source
+                universal_list_entity_listing.universal_list_entity_data_source
             </item>
         </item>
     </argument>
@@ -18,10 +18,16 @@
         </buttons>
         <spinner>universal_list_entity_listing_columns</spinner>
         <deps>
-            <dep>universal_list_entity_listing.universal_list_entity_listing_data_source</dep>
+            <dep>universal_list_entity_listing.universal_list_entity_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="universal_list_entity_listing_data_source" component="Magento_Ui/js/grid/provider">
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks" />
+        <columnsControls name="columns_controls" />
+        <filterSearch name="fulltext" />
+        <paging name="listing_paging" />
+    </listingToolbar>
+    <dataSource name="universal_list_entity_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
                 <param name="indexField" xsi:type="string">list_id</param>
@@ -29,36 +35,56 @@
             <updateUrl path="mui/index/render" />
         </settings>
         <aclResource>Elevinskii_UniversalList::universal_lists_entities</aclResource>
-        <dataProvider class="Elevinskii\UniversalList\Ui\DataProvider\Entity\Listing"
-                      name="universal_list_entity_listing_data_source">
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="universal_list_entity_data_source">
             <settings>
-                <primaryFieldName>id</primaryFieldName>
+                <primaryFieldName>list_id</primaryFieldName>
                 <requestFieldName>list_id</requestFieldName>
             </settings>
         </dataProvider>
     </dataSource>
     <columns name="universal_list_entity_listing_columns">
-        <column name="list_id">
+        <settings>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">
+                        universal_list_entity_listing.universal_list_entity_listing.universal_list_entity_listing_columns.actions
+                    </item>
+                    <item name="target" xsi:type="string">applyAction</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">edit</item>
+                        <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+        <column name="list_id" sortOrder="10">
             <settings>
                 <label translate="true">ID</label>
             </settings>
         </column>
-        <column name="title">
+        <column name="title" sortOrder="20">
             <settings>
                 <label translate="true">Title</label>
             </settings>
         </column>
-        <column name="code">
+        <column name="code" sortOrder="30">
             <settings>
                 <label translate="true">Code</label>
             </settings>
         </column>
-        <column name="sort_order">
+        <column name="sort_order" sortOrder="40">
             <settings>
                 <label translate="true">Sort Order</label>
                 <sorting>asc</sorting>
             </settings>
         </column>
-        <actionsColumn name="actions" class="Elevinskii\UniversalList\Ui\Component\Listing\Column\Entity\Actions" />
+        <actionsColumn name="actions" class="Magento\Backend\Ui\Component\Listing\Column\EditAction" sortOrder="50">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editUrlPath" xsi:type="string">universal_list/entity/edit</item>
+                </item>
+            </argument>
+        </actionsColumn>
     </columns>
 </listing>

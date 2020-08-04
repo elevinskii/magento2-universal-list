@@ -4,7 +4,7 @@
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">
-                universal_list_entity_form.universal_list_entity_form_data_source
+                universal_list_entity_form.universal_list_entity_data_source
             </item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
@@ -21,16 +21,16 @@
         </buttons>
         <dataScope>data</dataScope>
         <deps>
-            <dep>universal_list_entity_form.universal_list_entity_form_data_source</dep>
+            <dep>universal_list_entity_form.universal_list_entity_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="universal_list_entity_form_data_source" component="Magento_Ui/js/form/provider">
+    <dataSource name="universal_list_entity_data_source" component="Magento_Ui/js/form/provider">
         <settings>
             <submitUrl path="universal_list/entity/save" />
         </settings>
         <aclResource>Elevinskii_UniversalList::universal_lists_entities</aclResource>
-        <dataProvider class="Elevinskii\UniversalList\Ui\DataProvider\Entity\Form"
-                      name="universal_list_entity_form_data_source">
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="universal_list_entity_data_source">
             <settings>
                 <primaryFieldName>list_id</primaryFieldName>
                 <requestFieldName>list_id</requestFieldName>
@@ -40,8 +40,9 @@
     <fieldset name="general">
         <settings>
             <label />
+            <dataScope>general</dataScope>
         </settings>
-        <field name="title" formElement="input">
+        <field name="title" formElement="input" sortOrder="10">
             <settings>
                 <label translate="true">Title</label>
                 <validation>
@@ -49,7 +50,7 @@
                 </validation>
             </settings>
         </field>
-        <field name="code" formElement="input">
+        <field name="code" formElement="input" sortOrder="20">
             <settings>
                 <label translate="true">Code</label>
                 <validation>
@@ -57,11 +58,12 @@
                 </validation>
             </settings>
         </field>
-        <field name="sort_order" formElement="input">
+        <field name="sort_order" formElement="input" sortOrder="30">
             <settings>
                 <label translate="true">Sort Order</label>
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-zero-or-greater" xsi:type="boolean">true</rule>
                 </validation>
             </settings>
         </field>
