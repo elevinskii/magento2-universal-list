@@ -63,6 +63,7 @@
                 <label translate="true">Sort Order</label>
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-zero-or-greater" xsi:type="boolean">true</rule>
                 </validation>
             </settings>
         </field>
