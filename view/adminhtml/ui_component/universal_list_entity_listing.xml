@@ -44,6 +44,20 @@
         </dataProvider>
     </dataSource>
     <columns name="universal_list_entity_listing_columns">
+        <settings>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">
+                        universal_list_entity_listing.universal_list_entity_listing.universal_list_entity_listing_columns.actions
+                    </item>
+                    <item name="target" xsi:type="string">applyAction</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">edit</item>
+                        <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
         <column name="list_id" sortOrder="10">
             <settings>
                 <label translate="true">ID</label>
