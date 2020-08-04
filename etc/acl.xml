@@ -9,6 +9,9 @@
                         <resource id="Elevinskii_UniversalList::universal_lists_entities"
                                   title="Entities"
                                   sortOrder="10" />
+                        <resource id="Elevinskii_UniversalList::universal_lists_attributes"
+                                  title="Attributes"
+                                  sortOrder="20" />
                     </resource>
                 </resource>
             </resource>
