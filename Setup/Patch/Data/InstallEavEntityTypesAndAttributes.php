@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Setup\Patch\Data;
 
-use Magento\Eav\Model\Entity as EavEntity;
+use Elevinskii\UniversalList\Model\ResourceModel\Item as ItemResModel;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 
@@ -34,7 +34,7 @@ class InstallEavEntityTypesAndAttributes implements DataPatchInterface
     {
         $eavSetup = $this->eavSetupFactory->create();
         $eavSetup->addEntityType('universal_list_item', [
-            'entity_model' => EavEntity::class
+            'entity_model' => ItemResModel::class
         ]);
 
         return $this;
