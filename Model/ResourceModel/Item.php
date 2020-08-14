@@ -20,7 +20,7 @@ class Item extends AbstractEntity
      * @return EavTypeModel
      * @throws LocalizedException
      */
-    public function getEntityType()
+    public function getEntityType(): EavTypeModel
     {
         if (empty($this->_type)) {
             $this->setType(self::ENTITY_TYPE);
