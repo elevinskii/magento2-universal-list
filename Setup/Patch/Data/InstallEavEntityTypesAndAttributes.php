@@ -33,7 +33,7 @@ class InstallEavEntityTypesAndAttributes implements DataPatchInterface
     public function apply(): self
     {
         $eavSetup = $this->eavSetupFactory->create();
-        $eavSetup->addEntityType('universal_list_item', [
+        $eavSetup->addEntityType(ItemResModel::ENTITY_TYPE, [
             'entity_model' => ItemResModel::class
         ]);
 
