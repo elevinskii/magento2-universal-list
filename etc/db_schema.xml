@@ -17,4 +17,24 @@
             <column name="code" />
         </index>
     </table>
+
+    <table name="universal_list_eav_attribute">
+        <column xsi:type="smallint" name="attribute_id" unsigned="true" nullable="false" />
+        <column xsi:type="smallint" name="list_id" unsigned="true" nullable="false" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="attribute_id" />
+        </constraint>
+        <constraint xsi:type="foreign"
+                    referenceId="UNIVERSAL_LIST_EAV_ATTRIBUTE_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID"
+                    table="universal_list_eav_attribute"
+                    column="attribute_id"
+                    referenceTable="eav_attribute"
+                    referenceColumn="attribute_id" />
+        <constraint xsi:type="foreign"
+                    referenceId="UNIVERSAL_LIST_EAV_ATTRIBUTE_LIST_ID_UNIVERSAL_LIST_ENTITY_LIST_ID"
+                    table="universal_list_eav_attribute"
+                    column="list_id"
+                    referenceTable="universal_list_entity"
+                    referenceColumn="list_id" />
+    </table>
 </schema>
