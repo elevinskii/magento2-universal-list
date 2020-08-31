@@ -21,6 +21,17 @@ class Collection extends SearchResult
     private $eavConfig;
 
     /**
+     * Fields map for correlation names & real selected fields
+     *
+     * @var array
+     */
+    protected $_map = [
+        'fields' => [
+            'attribute_id' => 'main_table.attribute_id'
+        ]
+    ];
+
+    /**
      * Collection constructor
      *
      * @param EntityFactoryInterface $entityFactory
