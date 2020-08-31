@@ -13,15 +13,6 @@
             </argument>
         </arguments>
     </type>
-    <virtualType name="Elevinskii\UniversalList\Model\ResourceModel\Attribute\Grid\Collection"
-                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
-        <arguments>
-            <argument name="mainTable" xsi:type="string">eav_attribute</argument>
-            <argument name="resourceModel" xsi:type="string">
-                Magento\Eav\Model\ResourceModel\Entity\Attribute
-            </argument>
-        </arguments>
-    </virtualType>
     <virtualType name="Elevinskii\UniversalList\Model\ResourceModel\Entity\Grid\Collection"
                  type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
