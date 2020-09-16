@@ -33,6 +33,7 @@
     <listingToolbar name="listing_top">
         <bookmark name="bookmarks" />
         <columnsControls name="columns_controls" />
+        <filterSearch name="fulltext" />
         <filters name="listing_filter" />
         <paging name="listing_paging" />
     </listingToolbar>

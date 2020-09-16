@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter">
+        <plugin name="universal_list_attribute_fulltext_filter"
+                type="Elevinskii\UniversalList\Plugin\Framework\View\Element\UiComponent\DataProvider\FulltextFilter" />
+    </type>
+
     <virtualType name="Elevinskii\UniversalList\Model\ResourceModel\Entity\Grid\Collection"
                  type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
