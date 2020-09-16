@@ -9,6 +9,13 @@
         </item>
     </argument>
     <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new" />
+                <class>primary</class>
+                <label translate="true">Add New Attribute</label>
+            </button>
+        </buttons>
         <spinner>universal_list_attribute_listing_columns</spinner>
         <deps>
             <dep>universal_list_attribute_listing.universal_list_attribute_data_source</dep>
