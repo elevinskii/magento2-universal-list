@@ -49,16 +49,16 @@ abstract class Entity extends Action
     /**
      * Initialization of a backend page
      *
-     * @param string $title
+     * @param string[] $titles
      * @return ResultPage
      */
-    protected function initResultPage(string $title = ''): ResultPage
+    protected function initResultPage(array $titles = []): ResultPage
     {
         /** @var ResultPage $resultPage */
         $resultPage = $this->resultFactory->create($this->resultFactory::TYPE_PAGE);
         $resultPage->setActiveMenu('Elevinskii_UniversalList::universal_lists_entities');
 
-        if ($title) {
+        foreach ($titles as $title) {
             $resultPage->getConfig()->getTitle()->prepend($title);
         }
 
