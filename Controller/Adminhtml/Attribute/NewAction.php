@@ -7,7 +7,7 @@ use Elevinskii\UniversalList\Controller\Adminhtml\Attribute as AbstractAttribute
 use Magento\Backend\Model\View\Result\Page as ResultPage;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 
-class Index extends AbstractAttribute implements HttpGetActionInterface
+class NewAction extends AbstractAttribute implements HttpGetActionInterface
 {
     /**
      * Execute the controller
@@ -17,7 +17,8 @@ class Index extends AbstractAttribute implements HttpGetActionInterface
     public function execute(): ResultPage
     {
         return $this->initResultPage([
-            __('List Attributes')
+            __('Attributes'),
+            __('New Attribute')
         ]);
     }
 }

@@ -16,6 +16,8 @@ class NewAction extends AbstractEntity implements HttpGetActionInterface
      */
     public function execute(): ResultPage
     {
-        return $this->initResultPage((string) __('New List'));
+        return $this->initResultPage([
+            __('New List')
+        ]);
     }
 }

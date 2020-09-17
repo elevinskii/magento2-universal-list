@@ -37,6 +37,8 @@ class Edit extends AbstractEntity implements HttpGetActionInterface
             return $resultRedirect;
         }
 
-        return $this->initResultPage($entity->getTitle());
+        return $this->initResultPage([
+            $entity->getTitle()
+        ]);
     }
 }
