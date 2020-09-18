@@ -38,6 +38,7 @@ class Edit extends AbstractAttribute implements HttpGetActionInterface
         }
 
         return $this->initResultPage([
+            __('Attributes'),
             $attribute->getFrontendLabel()
         ]);
     }
