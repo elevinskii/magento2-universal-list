@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Controller\Adminhtml;
 
+use Elevinskii\UniversalList\Model\AttributeFactory as AttrModelFactory;
+use Elevinskii\UniversalList\Model\ResourceModel\AttributeFactory as AttrResModelFactory;
 use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Page as ResultPage;
 
 abstract class Attribute extends Action
@@ -14,6 +17,34 @@ abstract class Attribute extends Action
      * @see _isAllowed()
      */
     const ADMIN_RESOURCE = 'Elevinskii_UniversalList::universal_lists_attributes';
+
+    /**
+     * @var AttrModelFactory
+     */
+    protected $attrModelFactory;
+
+    /**
+     * @var AttrResModelFactory
+     */
+    protected $attrResModelFactory;
+
+    /**
+     * Attribute constructor
+     *
+     * @param Context $context
+     * @param AttrModelFactory $attrModelFactory
+     * @param AttrResModelFactory $attrResModelFactory
+     */
+    public function __construct(
+        Context $context,
+        AttrModelFactory $attrModelFactory,
+        AttrResModelFactory $attrResModelFactory
+    ) {
+        parent::__construct($context);
+
+        $this->attrModelFactory = $attrModelFactory;
+        $this->attrResModelFactory = $attrResModelFactory;
+    }
 
     /**
      * Initialization of a backend page
