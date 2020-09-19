@@ -16,6 +16,7 @@
                 <class>back</class>
                 <label translate="true">Back</label>
             </button>
+            <button name="save" class="Elevinskii\UniversalList\Ui\Component\Form\Control\Attribute\SaveSplitButton" />
         </buttons>
         <dataScope>data</dataScope>
         <deps>
@@ -23,6 +24,9 @@
         </deps>
     </settings>
     <dataSource name="universal_list_attribute_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="universal_list/attribute/save" />
+        </settings>
         <aclResource>Elevinskii_UniversalList::universal_lists_attributes</aclResource>
         <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
                       name="universal_list_attribute_data_source">
