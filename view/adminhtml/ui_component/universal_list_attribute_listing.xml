@@ -76,13 +76,13 @@
                 <options class="Elevinskii\UniversalList\Model\Entity\Options" />
                 <filter>select</filter>
                 <dataType>select</dataType>
-                <label translate="true">List</label>
+                <label translate="true">Universal List</label>
             </settings>
         </column>
         <column name="frontend_label" sortOrder="40">
             <settings>
                 <filter>text</filter>
-                <label translate="true">Default Label</label>
+                <label translate="true">Label</label>
             </settings>
         </column>
         <column name="is_required" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
