@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                universal_list_attribute_form.universal_list_attribute_data_source
+            </item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back">
+                <url path="*/*" />
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
+        </buttons>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>universal_list_attribute_form.universal_list_attribute_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="universal_list_attribute_data_source" component="Magento_Ui/js/form/provider">
+        <aclResource>Elevinskii_UniversalList::universal_lists_attributes</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="universal_list_attribute_data_source">
+            <settings>
+                <primaryFieldName>attribute_id</primaryFieldName>
+                <requestFieldName>attribute_id</requestFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <label />
+            <dataScope>general</dataScope>
+        </settings>
+        <field name="list_id" formElement="select" sortOrder="10">
+            <settings>
+                <label translate="true">Universal List</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Elevinskii\UniversalList\Model\Entity\Options" />
+                        <caption translate="true">-- Please Select --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="frontend_label" formElement="input" sortOrder="20">
+            <settings>
+                <label translate="true">Label</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="frontend_input" formElement="select" sortOrder="30">
+            <settings>
+                <label translate="true">Input Type</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Eav\Model\Adminhtml\System\Config\Source\Inputtype" />
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="is_required" formElement="select" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Value Required</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Config\Model\Config\Source\Yesno" />
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+    <fieldset name="advanced" sortOrder="20">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Advanced Attribute Properties</label>
+            <dataScope>general</dataScope>
+        </settings>
+        <field name="attribute_code" formElement="input" sortOrder="10">
+            <settings>
+                <label translate="true">Code</label>
+            </settings>
+        </field>
+        <field name="default_value" formElement="input" sortOrder="20">
+            <settings>
+                <label translate="true">Default Value</label>
+            </settings>
+        </field>
+    </fieldset>
+</form>
