@@ -24,6 +24,7 @@ use Magento\Framework\Model\AbstractModel;
  * @method string|null getDefaultValue()
  * @method bool|null getIsUnique()
  * @method string|null getNote()
+ * @method int|null getListId()
  */
 class Attribute extends AbstractModel
 {
