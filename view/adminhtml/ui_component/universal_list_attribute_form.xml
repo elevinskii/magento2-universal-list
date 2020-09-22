@@ -16,6 +16,7 @@
                 <class>back</class>
                 <label translate="true">Back</label>
             </button>
+            <button name="delete" class="Elevinskii\UniversalList\Ui\Component\Form\Control\Attribute\DeleteButton" />
             <button name="save" class="Elevinskii\UniversalList\Ui\Component\Form\Control\Attribute\SaveSplitButton" />
         </buttons>
         <dataScope>data</dataScope>
