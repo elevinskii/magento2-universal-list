@@ -27,8 +27,8 @@ class Edit extends AbstractAttribute implements HttpGetActionInterface
             return $resultRedirect;
         }
 
-        $attribute = $this->attrModelFactory->create();
-        $this->attrResModelFactory->create()->load($attribute, $attributeId);
+        $attribute = $this->getAttrModel();
+        $this->getAttrResModel()->load($attribute, $attributeId);
 
         if ($attribute->isEmpty()) {
             $this->messageManager->addErrorMessage(

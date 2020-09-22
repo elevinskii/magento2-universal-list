@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Controller\Adminhtml;
 
+use Elevinskii\UniversalList\Model\Attribute as AttrModel;
 use Elevinskii\UniversalList\Model\AttributeFactory as AttrModelFactory;
+use Elevinskii\UniversalList\Model\ResourceModel\Attribute as AttrResModel;
 use Elevinskii\UniversalList\Model\ResourceModel\AttributeFactory as AttrResModelFactory;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -21,12 +23,12 @@ abstract class Attribute extends Action
     /**
      * @var AttrModelFactory
      */
-    protected $attrModelFactory;
+    private $attrModelFactory;
 
     /**
      * @var AttrResModelFactory
      */
-    protected $attrResModelFactory;
+    private $attrResModelFactory;
 
     /**
      * Attribute constructor
@@ -44,6 +46,26 @@ abstract class Attribute extends Action
 
         $this->attrModelFactory = $attrModelFactory;
         $this->attrResModelFactory = $attrResModelFactory;
+    }
+
+    /**
+     * Retrieve attribute model
+     *
+     * @return AttrModel
+     */
+    protected function getAttrModel(): AttrModel
+    {
+        return $this->attrModelFactory->create();
+    }
+
+    /**
+     * Retrieve attribute resource model
+     *
+     * @return AttrResModel
+     */
+    protected function getAttrResModel(): AttrResModel
+    {
+        return $this->attrResModelFactory->create();
     }
 
     /**

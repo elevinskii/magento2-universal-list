@@ -28,8 +28,8 @@ class Save extends AbstractEntity implements HttpPostActionInterface
 
         $formValues = $request->getPostValue('general', []);
         $listId = $formValues['list_id'] ?? null;
-        $entity = $this->entityModelFactory->create();
-        $resEntity = $this->entityResModelFactory->create();
+        $entity = $this->getEntityModel();
+        $resEntity = $this->getEntityResModel();
 
         if ($listId) {
             $resEntity->load($entity, $listId);

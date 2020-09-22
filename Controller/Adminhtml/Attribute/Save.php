@@ -28,8 +28,8 @@ class Save extends AbstractAttribute implements HttpPostActionInterface
 
         $formValues = $request->getPostValue('general', []);
         $attributeId = $formValues['attribute_id'] ?? null;
-        $attribute = $this->attrModelFactory->create();
-        $resAttribute = $this->attrResModelFactory->create();
+        $attribute = $this->getAttrModel();
+        $resAttribute = $this->getAttrResModel();
 
         if ($attributeId) {
             $resAttribute->load($attribute, $attributeId);
