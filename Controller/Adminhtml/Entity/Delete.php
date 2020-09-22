@@ -27,8 +27,8 @@ class Delete extends AbstractEntity implements HttpPostActionInterface
 
         $listId = $request->getPostValue('list_id');
         if ($listId) {
-            $entity = $this->entityModelFactory->create();
-            $resEntity = $this->entityResModelFactory->create();
+            $entity = $this->getEntityModel();
+            $resEntity = $this->getEntityResModel();
 
             $resEntity->load($entity, $listId);
             if ($entity->isEmpty()) {

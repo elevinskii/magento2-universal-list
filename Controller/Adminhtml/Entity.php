@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Controller\Adminhtml;
 
+use Elevinskii\UniversalList\Model\Entity as EntityModel;
 use Elevinskii\UniversalList\Model\EntityFactory as EntityModelFactory;
+use Elevinskii\UniversalList\Model\ResourceModel\Entity as EntityResModel;
 use Elevinskii\UniversalList\Model\ResourceModel\EntityFactory as EntityResModelFactory;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -21,12 +23,12 @@ abstract class Entity extends Action
     /**
      * @var EntityModelFactory
      */
-    protected $entityModelFactory;
+    private $entityModelFactory;
 
     /**
      * @var EntityResModelFactory
      */
-    protected $entityResModelFactory;
+    private $entityResModelFactory;
 
     /**
      * Entity constructor
@@ -44,6 +46,26 @@ abstract class Entity extends Action
 
         $this->entityModelFactory = $entityModelFactory;
         $this->entityResModelFactory = $entityResModelFactory;
+    }
+
+    /**
+     * Retrieve entity model
+     *
+     * @return EntityModel
+     */
+    protected function getEntityModel(): EntityModel
+    {
+        return $this->entityModelFactory->create();
+    }
+
+    /**
+     * Retrieve entity resource model
+     *
+     * @return EntityResModel
+     */
+    protected function getEntityResModel(): EntityResModel
+    {
+        return $this->entityResModelFactory->create();
     }
 
     /**

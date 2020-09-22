@@ -35,4 +35,13 @@
             <argument name="sortOrder" xsi:type="number">30</argument>
         </arguments>
     </virtualType>
+
+    <virtualType name="Elevinskii\UniversalList\Ui\Component\Form\Control\Attribute\SaveSplitButton"
+                 type="Magento\Backend\Ui\Component\Control\SaveSplitButton">
+        <arguments>
+            <argument name="targetName" xsi:type="string">
+                universal_list_attribute_form.universal_list_attribute_form
+            </argument>
+        </arguments>
+    </virtualType>
 </config>

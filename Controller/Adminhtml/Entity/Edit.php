@@ -27,8 +27,8 @@ class Edit extends AbstractEntity implements HttpGetActionInterface
             return $resultRedirect;
         }
 
-        $entity = $this->entityModelFactory->create();
-        $this->entityResModelFactory->create()->load($entity, $listId);
+        $entity = $this->getEntityModel();
+        $this->getEntityResModel()->load($entity, $listId);
 
         if ($entity->isEmpty()) {
             $this->messageManager->addErrorMessage(

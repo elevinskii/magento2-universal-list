@@ -1,16 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace Elevinskii\UniversalList\Controller\Adminhtml\Entity;
+namespace Elevinskii\UniversalList\Controller\Adminhtml\Attribute;
 
-use Elevinskii\UniversalList\Controller\Adminhtml\Entity as AbstractEntity;
+use Elevinskii\UniversalList\Controller\Adminhtml\Attribute as AbstractAttribute;
 use Exception;
 use Magento\Backend\Model\View\Result\Redirect as ResultRedirect;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\App\Request\Http as Request;
 use Magento\Framework\Exception\LocalizedException;
 
-class Save extends AbstractEntity implements HttpPostActionInterface
+class Save extends AbstractAttribute implements HttpPostActionInterface
 {
     /**
      * Execute the controller
@@ -27,24 +27,24 @@ class Save extends AbstractEntity implements HttpPostActionInterface
         $request = $this->getRequest();
 
         $formValues = $request->getPostValue('general', []);
-        $listId = $formValues['list_id'] ?? null;
-        $entity = $this->getEntityModel();
-        $resEntity = $this->getEntityResModel();
+        $attributeId = $formValues['attribute_id'] ?? null;
+        $attribute = $this->getAttrModel();
+        $resAttribute = $this->getAttrResModel();
 
-        if ($listId) {
-            $resEntity->load($entity, $listId);
-            if ($entity->isEmpty()) {
+        if ($attributeId) {
+            $resAttribute->load($attribute, $attributeId);
+            if ($attribute->isEmpty()) {
                 $this->messageManager->addErrorMessage(
-                    __('The list with ID=%1 does not exist.', $listId)
+                    __('The attribute with ID=%1 does not exist.', $attributeId)
                 );
                 return $resultRedirect;
             }
         }
 
         try {
-            $entity->setData($formValues);
-            $resEntity->save($entity);
-            $this->messageManager->addSuccessMessage(__('The list has been saved.'));
+            $attribute->setData($formValues);
+            $resAttribute->save($attribute);
+            $this->messageManager->addSuccessMessage(__('The attribute has been saved.'));
         } catch (LocalizedException $e) {
             $request->setParam('back', true);
             $this->messageManager->addErrorMessage($e->getMessage());
@@ -54,8 +54,8 @@ class Save extends AbstractEntity implements HttpPostActionInterface
         }
 
         if ($request->getParam('back')) {
-            if ($entity->getId()) {
-                $resultRedirect->setPath('*/*/edit', ['list_id' => $entity->getId()]);
+            if ($attribute->getId()) {
+                $resultRedirect->setPath('*/*/edit', ['attribute_id' => $attribute->getId()]);
             } else {
                 $resultRedirect->setPath('*/*/new');
             }
