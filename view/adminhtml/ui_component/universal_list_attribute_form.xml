@@ -96,6 +96,13 @@
                 </select>
             </formElements>
         </field>
+        <field name="is_user_defined" formElement="hidden" sortOrder="50">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+        </field>
     </fieldset>
     <fieldset name="advanced" sortOrder="20">
         <settings>
