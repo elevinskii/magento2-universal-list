@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd"
+      class="Elevinskii\UniversalList\Ui\Component\Attribute\Form">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">
@@ -16,6 +17,7 @@
                 <class>back</class>
                 <label translate="true">Back</label>
             </button>
+            <button name="delete" class="Elevinskii\UniversalList\Ui\Component\Form\Control\Attribute\DeleteButton" />
             <button name="save" class="Elevinskii\UniversalList\Ui\Component\Form\Control\Attribute\SaveSplitButton" />
         </buttons>
         <dataScope>data</dataScope>
@@ -93,6 +95,13 @@
                     </settings>
                 </select>
             </formElements>
+        </field>
+        <field name="is_user_defined" formElement="hidden" sortOrder="50">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
         </field>
     </fieldset>
     <fieldset name="advanced" sortOrder="20">

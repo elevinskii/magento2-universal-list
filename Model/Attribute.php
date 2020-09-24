@@ -25,6 +25,25 @@ use Magento\Framework\Model\AbstractModel;
  * @method bool|null getIsUnique()
  * @method string|null getNote()
  * @method int|null getListId()
+ *
+ * @method $this setAttributeId(int $attributeId)
+ * @method $this setEntityTypeId(int $entityTypeId)
+ * @method $this setAttributeCode(string $attributeCode)
+ * @method $this setAttributeModel(string $attributeModel)
+ * @method $this setBackendModel(string $backendModel)
+ * @method $this setBackendType(string $backendType)
+ * @method $this setBackendTable(string $backendTable)
+ * @method $this setFrontendModel(string $frontendModel)
+ * @method $this setFrontendInput(string $frontendInput)
+ * @method $this setFrontendLabel(string $frontendLabel)
+ * @method $this setFrontendClass(string $frontendClass)
+ * @method $this setSourceModel(string $sourceModel)
+ * @method $this setIsRequired(bool $isRequired)
+ * @method $this setIsUserDefined(bool $isUserDefined)
+ * @method $this setDefaultValue(string $defaultValue)
+ * @method $this setIsUnique(bool $isUnique)
+ * @method $this setNote(string $note)
+ * @method $this setListId(int $listId)
  */
 class Attribute extends AbstractModel
 {

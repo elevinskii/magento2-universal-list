@@ -103,7 +103,16 @@
         </column>
         <column name="is_user_defined" component="Magento_Ui/js/grid/columns/select" sortOrder="70">
             <settings>
-                <options class="Magento\Config\Model\Config\Source\Yesno" />
+                <options>
+                    <option name="0" xsi:type="array">
+                        <item name="value" xsi:type="number">0</item>
+                        <item name="label" xsi:type="string" translate="true">Yes</item>
+                    </option>
+                    <option name="1" xsi:type="array">
+                        <item name="value" xsi:type="number">1</item>
+                        <item name="label" xsi:type="string" translate="true">No</item>
+                    </option>
+                </options>
                 <filter>select</filter>
                 <dataType>select</dataType>
                 <label translate="true">System</label>
