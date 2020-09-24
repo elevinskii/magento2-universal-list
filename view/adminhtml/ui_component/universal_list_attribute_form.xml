@@ -49,6 +49,9 @@
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
+                <imports>
+                    <link name="disabled">${ $.provider }:data.general.attribute_id</link>
+                </imports>
             </settings>
             <formElements>
                 <select>
@@ -70,6 +73,9 @@
         <field name="frontend_input" formElement="select" sortOrder="30">
             <settings>
                 <label translate="true">Input Type</label>
+                <imports>
+                    <link name="disabled">${ $.provider }:data.general.attribute_id</link>
+                </imports>
             </settings>
             <formElements>
                 <select>
@@ -113,6 +119,9 @@
         <field name="attribute_code" formElement="input" sortOrder="10">
             <settings>
                 <label translate="true">Code</label>
+                <imports>
+                    <link name="disabled">${ $.provider }:data.general.attribute_id</link>
+                </imports>
             </settings>
         </field>
         <field name="default_value" formElement="input" sortOrder="20">
