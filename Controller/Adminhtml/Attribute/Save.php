@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Elevinskii\UniversalList\Controller\Adminhtml\Attribute;
 
 use Elevinskii\UniversalList\Controller\Adminhtml\Attribute as AbstractAttribute;
+use Elevinskii\UniversalList\Model\Attribute as AttributeModel;
 use Exception;
 use Magento\Backend\Model\View\Result\Redirect as ResultRedirect;
 use Magento\Framework\App\Action\HttpPostActionInterface;
@@ -43,6 +44,8 @@ class Save extends AbstractAttribute implements HttpPostActionInterface
 
         try {
             $attribute->setData($formValues);
+            $this->setDefaultValue($attribute, $formValues);
+
             $resAttribute->save($attribute);
             $this->messageManager->addSuccessMessage(__('The attribute has been saved.'));
         } catch (LocalizedException $e) {
@@ -64,5 +67,23 @@ class Save extends AbstractAttribute implements HttpPostActionInterface
         }
 
         return $resultRedirect;
+    }
+
+    /**
+     * Sets default value for the model, depending on its frontend type
+     *
+     * @param AttributeModel $attribute
+     * @param array $formValues
+     */
+    private function setDefaultValue(
+        AttributeModel $attribute,
+        array $formValues
+    ): void {
+        if (isset($formValues['frontend_input'])) {
+            $defaultValueField = $attribute->getDefaultValueByInput($formValues['frontend_input']);
+            if ($defaultValueField && isset($formValues[$defaultValueField])) {
+                $attribute->setDefaultValue($formValues[$defaultValueField]);
+            }
+        }
     }
 }
