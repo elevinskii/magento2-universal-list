@@ -49,6 +49,9 @@
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
+                <imports>
+                    <link name="disabled">${ $.provider }:data.general.attribute_id</link>
+                </imports>
             </settings>
             <formElements>
                 <select>
@@ -67,9 +70,26 @@
                 </validation>
             </settings>
         </field>
-        <field name="frontend_input" formElement="select" sortOrder="30">
+        <field name="frontend_input"
+               component="Elevinskii_UniversalList/js/form/element/attribute/input-type"
+               formElement="select"
+               sortOrder="30">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="fields" xsi:type="array">
+                        <item name="text" xsi:type="string">ns = ${ $.ns }, index = default_value_text</item>
+                        <item name="textarea" xsi:type="string">ns = ${ $.ns }, index = default_value_textarea</item>
+                        <item name="texteditor" xsi:type="string">ns = ${ $.ns }, index = default_value_textarea</item>
+                        <item name="date" xsi:type="string">ns = ${ $.ns }, index = default_value_date</item>
+                        <item name="boolean" xsi:type="string">ns = ${ $.ns }, index = default_value_yesno</item>
+                    </item>
+                </item>
+            </argument>
             <settings>
                 <label translate="true">Input Type</label>
+                <imports>
+                    <link name="disabled">${ $.provider }:data.general.attribute_id</link>
+                </imports>
             </settings>
             <formElements>
                 <select>
@@ -113,12 +133,47 @@
         <field name="attribute_code" formElement="input" sortOrder="10">
             <settings>
                 <label translate="true">Code</label>
+                <imports>
+                    <link name="disabled">${ $.provider }:data.general.attribute_id</link>
+                </imports>
             </settings>
         </field>
-        <field name="default_value" formElement="input" sortOrder="20">
+        <field name="default_value_text" formElement="input" sortOrder="20">
             <settings>
                 <label translate="true">Default Value</label>
             </settings>
+        </field>
+        <field name="default_value_textarea" formElement="textarea" sortOrder="20">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="rows" xsi:type="number">4</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Default Value</label>
+            </settings>
+        </field>
+        <field name="default_value_date" formElement="date" sortOrder="20">
+            <settings>
+                <label translate="true">Default Value</label>
+            </settings>
+        </field>
+        <field name="default_value_yesno" formElement="select" sortOrder="20">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Default Value</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Config\Model\Config\Source\Yesno" />
+                    </settings>
+                </select>
+            </formElements>
         </field>
     </fieldset>
 </form>
