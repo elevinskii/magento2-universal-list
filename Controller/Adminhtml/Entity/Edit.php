@@ -3,13 +3,12 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Controller\Adminhtml\Entity;
 
-use Elevinskii\UniversalList\Controller\Adminhtml\Entity as AbstractEntity;
 use Magento\Backend\Model\View\Result\Page as ResultPage;
 use Magento\Backend\Model\View\Result\Redirect as ResultRedirect;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultInterface;
 
-class Edit extends AbstractEntity implements HttpGetActionInterface
+class Edit extends Entity implements HttpGetActionInterface
 {
     /**
      * Execute the controller

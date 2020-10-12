@@ -3,11 +3,10 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Controller\Adminhtml\Entity;
 
-use Elevinskii\UniversalList\Controller\Adminhtml\Entity as AbstractEntity;
 use Magento\Backend\Model\View\Result\Page as ResultPage;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 
-class Index extends AbstractEntity implements HttpGetActionInterface
+class Index extends Entity implements HttpGetActionInterface
 {
     /**
      * Execute the controller

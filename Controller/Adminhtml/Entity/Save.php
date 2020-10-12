@@ -3,14 +3,13 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Controller\Adminhtml\Entity;
 
-use Elevinskii\UniversalList\Controller\Adminhtml\Entity as AbstractEntity;
 use Exception;
 use Magento\Backend\Model\View\Result\Redirect as ResultRedirect;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\App\Request\Http as Request;
 use Magento\Framework\Exception\LocalizedException;
 
-class Save extends AbstractEntity implements HttpPostActionInterface
+class Save extends Entity implements HttpPostActionInterface
 {
     /**
      * Execute the controller

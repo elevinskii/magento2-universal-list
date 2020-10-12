@@ -1,15 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Elevinskii\UniversalList\Controller\Adminhtml;
+namespace Elevinskii\UniversalList\Controller\Adminhtml\Entity;
 
+use Elevinskii\UniversalList\Controller\Adminhtml\Action;
 use Elevinskii\UniversalList\Model\Entity as EntityModel;
 use Elevinskii\UniversalList\Model\EntityFactory as EntityModelFactory;
 use Elevinskii\UniversalList\Model\ResourceModel\Entity as EntityResModel;
 use Elevinskii\UniversalList\Model\ResourceModel\EntityFactory as EntityResModelFactory;
-use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
-use Magento\Backend\Model\View\Result\Page as ResultPage;
 
 abstract class Entity extends Action
 {
@@ -19,6 +18,13 @@ abstract class Entity extends Action
      * @see _isAllowed()
      */
     const ADMIN_RESOURCE = 'Elevinskii_UniversalList::universal_lists_entities';
+
+    /**
+     * Active point of backend menu
+     *
+     * @see initResultPage()
+     */
+    const ACTIVE_MENU = 'Elevinskii_UniversalList::universal_lists_entities';
 
     /**
      * @var EntityModelFactory
@@ -66,24 +72,5 @@ abstract class Entity extends Action
     protected function getEntityResModel(): EntityResModel
     {
         return $this->entityResModelFactory->create();
-    }
-
-    /**
-     * Initialization of a backend page
-     *
-     * @param string[] $titles
-     * @return ResultPage
-     */
-    protected function initResultPage(array $titles = []): ResultPage
-    {
-        /** @var ResultPage $resultPage */
-        $resultPage = $this->resultFactory->create($this->resultFactory::TYPE_PAGE);
-        $resultPage->setActiveMenu('Elevinskii_UniversalList::universal_lists_entities');
-
-        foreach ($titles as $title) {
-            $resultPage->getConfig()->getTitle()->prepend($title);
-        }
-
-        return $resultPage;
     }
 }
