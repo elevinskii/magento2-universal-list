@@ -3,13 +3,12 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Controller\Adminhtml\Attribute;
 
-use Elevinskii\UniversalList\Controller\Adminhtml\Attribute as AbstractAttribute;
 use Exception;
 use Magento\Backend\Model\View\Result\Redirect as ResultRedirect;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\App\Request\Http as Request;
 
-class Delete extends AbstractAttribute implements HttpPostActionInterface
+class Delete extends Attribute implements HttpPostActionInterface
 {
     /**
      * Execute the controller

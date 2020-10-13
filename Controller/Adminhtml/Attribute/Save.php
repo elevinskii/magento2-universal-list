@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Elevinskii\UniversalList\Controller\Adminhtml\Attribute;
 
-use Elevinskii\UniversalList\Controller\Adminhtml\Attribute as AbstractAttribute;
 use Elevinskii\UniversalList\Model\Attribute as AttributeModel;
 use Exception;
 use Magento\Backend\Model\View\Result\Redirect as ResultRedirect;
@@ -11,7 +10,7 @@ use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\App\Request\Http as Request;
 use Magento\Framework\Exception\LocalizedException;
 
-class Save extends AbstractAttribute implements HttpPostActionInterface
+class Save extends Attribute implements HttpPostActionInterface
 {
     /**
      * Execute the controller
