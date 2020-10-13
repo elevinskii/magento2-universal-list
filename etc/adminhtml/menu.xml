@@ -16,6 +16,7 @@
              parent="Elevinskii_UniversalList::universal_lists"
              action="universal_list/entity"
              resource="Elevinskii_UniversalList::universal_lists_entities" />
+
         <add id="Elevinskii_UniversalList::universal_lists_attributes"
              title="Attributes"
              module="Elevinskii_UniversalList"
@@ -23,5 +24,12 @@
              parent="Elevinskii_UniversalList::universal_lists"
              action="universal_list/attribute"
              resource="Elevinskii_UniversalList::universal_lists_attributes" />
+
+        <add id="Elevinskii_UniversalList::universal_lists_items"
+             title="Universal Lists"
+             module="Elevinskii_UniversalList"
+             sortOrder="30"
+             parent="Magento_Backend::content"
+             resource="Elevinskii_UniversalList::universal_lists_items" />
     </menu>
 </config>
