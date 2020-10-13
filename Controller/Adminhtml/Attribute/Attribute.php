@@ -1,15 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Elevinskii\UniversalList\Controller\Adminhtml;
+namespace Elevinskii\UniversalList\Controller\Adminhtml\Attribute;
 
+use Elevinskii\UniversalList\Controller\Adminhtml\Action;
 use Elevinskii\UniversalList\Model\Attribute as AttrModel;
 use Elevinskii\UniversalList\Model\AttributeFactory as AttrModelFactory;
 use Elevinskii\UniversalList\Model\ResourceModel\Attribute as AttrResModel;
 use Elevinskii\UniversalList\Model\ResourceModel\AttributeFactory as AttrResModelFactory;
-use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
-use Magento\Backend\Model\View\Result\Page as ResultPage;
 
 abstract class Attribute extends Action
 {
@@ -19,6 +18,13 @@ abstract class Attribute extends Action
      * @see _isAllowed()
      */
     const ADMIN_RESOURCE = 'Elevinskii_UniversalList::universal_lists_attributes';
+
+    /**
+     * Active point of backend menu
+     *
+     * @see initResultPage()
+     */
+    const ACTIVE_MENU = 'Elevinskii_UniversalList::universal_lists_attributes';
 
     /**
      * @var AttrModelFactory
@@ -66,24 +72,5 @@ abstract class Attribute extends Action
     protected function getAttrResModel(): AttrResModel
     {
         return $this->attrResModelFactory->create();
-    }
-
-    /**
-     * Initialization of a backend page
-     *
-     * @param string[] $titles
-     * @return ResultPage
-     */
-    protected function initResultPage(array $titles = []): ResultPage
-    {
-        /** @var ResultPage $resultPage */
-        $resultPage = $this->resultFactory->create($this->resultFactory::TYPE_PAGE);
-        $resultPage->setActiveMenu('Elevinskii_UniversalList::universal_lists_attributes');
-
-        foreach ($titles as $title) {
-            $resultPage->getConfig()->getTitle()->prepend($title);
-        }
-
-        return $resultPage;
     }
 }
