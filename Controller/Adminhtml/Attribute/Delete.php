@@ -26,8 +26,8 @@ class Delete extends Attribute implements HttpPostActionInterface
 
         $attributeId = $request->getPostValue('attribute_id');
         if ($attributeId) {
-            $attribute = $this->getAttrModel();
-            $resAttribute = $this->getAttrResModel();
+            $attribute = $this->context->getAttrModel();
+            $resAttribute = $this->context->getAttrResModel();
 
             $resAttribute->load($attribute, $attributeId);
             if ($attribute->isEmpty()) {

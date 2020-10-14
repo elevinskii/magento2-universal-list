@@ -26,8 +26,8 @@ class Index extends Item implements HttpGetActionInterface
             return $resultRedirect;
         }
 
-        $entity = $this->getEntityModel();
-        $this->getEntityResModel()->load($entity, $listId);
+        $entity = $this->context->getEntityModel();
+        $this->context->getEntityResModel()->load($entity, $listId);
 
         if ($entity->isEmpty()) {
             $this->messageManager->addErrorMessage(
