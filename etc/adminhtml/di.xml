@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Backend\Model\Menu\Config\Reader">
+        <plugin name="universal_list_insert_entity_list"
+                type="Elevinskii\UniversalList\Plugin\Backend\Model\Menu\Config\Reader" />
+    </type>
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter">
         <plugin name="universal_list_attribute_fulltext_filter"
                 type="Elevinskii\UniversalList\Plugin\Framework\View\Element\UiComponent\DataProvider\FulltextFilter" />
