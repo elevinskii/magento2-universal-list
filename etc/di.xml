@@ -10,6 +10,9 @@
                 <item name="universal_list_entity_data_source" xsi:type="string">
                     Elevinskii\UniversalList\Model\ResourceModel\Entity\Grid\Collection
                 </item>
+                <item name="universal_list_item_data_source" xsi:type="string">
+                    Elevinskii\UniversalList\Model\ResourceModel\Item\Grid\Collection
+                </item>
             </argument>
         </arguments>
     </type>

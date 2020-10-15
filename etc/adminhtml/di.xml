@@ -19,6 +19,15 @@
             </argument>
         </arguments>
     </virtualType>
+    <virtualType name="Elevinskii\UniversalList\Model\ResourceModel\Item\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">eav_entity</argument>
+            <argument name="resourceModel" xsi:type="string">
+                Elevinskii\UniversalList\Model\ResourceModel\Item
+            </argument>
+        </arguments>
+    </virtualType>
 
     <virtualType name="Elevinskii\UniversalList\Ui\Component\Form\Control\Entity\SaveSplitButton"
                  type="Magento\Backend\Ui\Component\Control\SaveSplitButton">
