@@ -27,8 +27,8 @@ class Save extends Entity implements HttpPostActionInterface
 
         $formValues = $request->getPostValue('general', []);
         $listId = $formValues['list_id'] ?? null;
-        $entity = $this->getEntityModel();
-        $resEntity = $this->getEntityResModel();
+        $entity = $this->context->getEntityModel();
+        $resEntity = $this->context->getEntityResModel();
 
         if ($listId) {
             $resEntity->load($entity, $listId);

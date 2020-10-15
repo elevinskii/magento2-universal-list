@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace Elevinskii\UniversalList\Controller\Adminhtml\Attribute;
+namespace Elevinskii\UniversalList\Controller\Adminhtml\Item;
 
 use Magento\Backend\Model\View\Result\Page as ResultPage;
 use Magento\Backend\Model\View\Result\Redirect as ResultRedirect;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultInterface;
 
-class Edit extends Attribute implements HttpGetActionInterface
+class Index extends Item implements HttpGetActionInterface
 {
     /**
      * Execute the controller
@@ -19,26 +19,26 @@ class Edit extends Attribute implements HttpGetActionInterface
     {
         /** @var ResultRedirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
-        $resultRedirect->setPath('*/*');
+        $resultRedirect->setPath('*/entity');
 
-        $attributeId = $this->getRequest()->getParam('attribute_id');
-        if (!$attributeId) {
+        $listId = $this->getRequest()->getParam('list_id');
+        if (!$listId) {
             return $resultRedirect;
         }
 
-        $attribute = $this->context->getAttrModel();
-        $this->context->getAttrResModel()->load($attribute, $attributeId);
+        $entity = $this->context->getEntityModel();
+        $this->context->getEntityResModel()->load($entity, $listId);
 
-        if ($attribute->isEmpty()) {
+        if ($entity->isEmpty()) {
             $this->messageManager->addErrorMessage(
-                __('The attribute with ID=%1 does not exist.', $attributeId)
+                __('The list with ID=%1 does not exist.', $listId)
             );
             return $resultRedirect;
         }
 
         return $this->initResultPage([
-            __('Attributes'),
-            $attribute->getFrontendLabel()
+            __('Universal Lists'),
+            $entity->getTitle()
         ]);
     }
 }

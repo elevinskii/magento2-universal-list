@@ -14,6 +14,11 @@
                                   sortOrder="20" />
                     </resource>
                 </resource>
+                <resource id="Magento_Backend::content">
+                    <resource id="Elevinskii_UniversalList::universal_lists_items"
+                              title="Universal Lists"
+                              sortOrder="50" />
+                </resource>
             </resource>
         </resources>
     </acl>
