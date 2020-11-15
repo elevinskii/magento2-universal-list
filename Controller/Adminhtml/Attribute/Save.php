@@ -43,6 +43,7 @@ class Save extends Attribute implements HttpPostActionInterface
 
         try {
             $attribute->setData($formValues);
+            $this->fixListId($attribute);
             $this->setDefaultValue($attribute, $formValues);
 
             $resAttribute->save($attribute);
@@ -66,6 +67,20 @@ class Save extends Attribute implements HttpPostActionInterface
         }
 
         return $resultRedirect;
+    }
+
+    /**
+     * Fixes "list_id" value in the input object, removing
+     * the value if it can't be processed
+     *
+     * @param AttributeModel $attribute
+     */
+    private function fixListId(
+        AttributeModel $attribute
+    ): void {
+        if (!$attribute->getListId()) {
+            $attribute->setListId(null);
+        }
     }
 
     /**

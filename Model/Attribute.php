@@ -8,7 +8,7 @@ use Magento\Eav\Model\Entity\Attribute as EavAttribute;
 
 /**
  * @method int|null getListId()
- * @method $this setListId(int $listId)
+ * @method $this setListId(?int $listId)
  */
 class Attribute extends EavAttribute
 {

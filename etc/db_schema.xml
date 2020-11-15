@@ -20,7 +20,7 @@
 
     <table name="universal_list_eav_attribute">
         <column xsi:type="smallint" name="attribute_id" unsigned="true" nullable="false" />
-        <column xsi:type="smallint" name="list_id" unsigned="true" nullable="false" />
+        <column xsi:type="smallint" name="list_id" unsigned="true" />
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="attribute_id" />
         </constraint>

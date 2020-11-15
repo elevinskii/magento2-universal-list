@@ -46,9 +46,6 @@
         <field name="list_id" formElement="select" sortOrder="10">
             <settings>
                 <label translate="true">Universal List</label>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
                 <imports>
                     <link name="disabled">${ $.provider }:data.general.attribute_id</link>
                 </imports>
@@ -57,7 +54,7 @@
                 <select>
                     <settings>
                         <options class="Elevinskii\UniversalList\Model\Entity\Options" />
-                        <caption translate="true">-- Please Select --</caption>
+                        <caption translate="true">-- All lists --</caption>
                     </settings>
                 </select>
             </formElements>
