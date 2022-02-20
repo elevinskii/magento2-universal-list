@@ -1,0 +1,7 @@
+{
+    "name": "elevinskii/universal-list",
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "magento/magento-coding-standard": "*"
+    }
+}
