@@ -1,0 +1,16 @@
+name: Continuous Integration
+on: [push]
+
+jobs:
+  coding-standards:
+    name: Coding Standard Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Check codestyle violations
+        run: vendor/bin/phpcs .
